@@ -46,9 +46,18 @@ const pointLight2 = new THREE.PointLight(0xff0000, 2)
 // pointLight.position.x = 2
 // pointLight.position.y = 3
 // pointLight.position.z = 4
-pointLight2.position.set(1,1,1)
-pointLight2.intensity = 1
+pointLight2.position.set(-1.9,1,-.22)
+pointLight2.intensity = 4.36
 scene.add(pointLight2)
+// Moving red light 
+gui.add(pointLight2.position, 'y').min(-3).max(3).step(0.01)
+gui.add(pointLight2.position, 'x').min(-6).max(6).step(0.01)
+gui.add(pointLight2.position, 'z').min(-3).max(3).step(0.01)
+gui.add(pointLight2, 'intensity').min(0).max(10).step(0.01)
+
+const pointLightHelper = new THREE.PointLightHelper(pointLight2, 1)
+scene.add(pointLightHelper)
+
 /**
  * Screen Size
  */
