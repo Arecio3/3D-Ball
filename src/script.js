@@ -43,20 +43,40 @@ scene.add(pointLight)
 
 // Color light
 const pointLight2 = new THREE.PointLight(0xff0000, 2)
-// pointLight.position.x = 2
-// pointLight.position.y = 3
-// pointLight.position.z = 4
 pointLight2.position.set(-1.9,1,-.22)
 pointLight2.intensity = 4.36
 scene.add(pointLight2)
-// Moving red light 
-gui.add(pointLight2.position, 'y').min(-3).max(3).step(0.01)
-gui.add(pointLight2.position, 'x').min(-6).max(6).step(0.01)
-gui.add(pointLight2.position, 'z').min(-3).max(3).step(0.01)
-gui.add(pointLight2, 'intensity').min(0).max(10).step(0.01)
 
+// Makes a folder for gui tools
+const redLight = gui.addFolder('Red Light')
+
+// Moving red light 
+redLight.add(pointLight2.position, 'y').min(-3).max(3).step(0.01)
+redLight.add(pointLight2.position, 'x').min(-6).max(6).step(0.01)
+redLight.add(pointLight2.position, 'z').min(-3).max(3).step(0.01)
+redLight.add(pointLight2, 'intensity').min(0).max(10).step(0.01)
+
+// Red light helper
 const pointLightHelper = new THREE.PointLightHelper(pointLight2, 1)
 scene.add(pointLightHelper)
+
+// Blue Light
+const pointLight3 = new THREE.PointLight(0xff0000, 2)
+pointLight3.position.set(-1.9,1,-.22)
+pointLight3.intensity = 4.36
+scene.add(pointLight3)
+
+// Makes a folder for gui tools
+const blueLight = gui.addFolder('Blue Light')
+// Moving red light 
+blueLight.add(pointLight3.position, 'y').min(-3).max(3).step(0.01)
+blueLight.add(pointLight3.position, 'x').min(-6).max(6).step(0.01)
+blueLight.add(pointLight3.position, 'z').min(-3).max(3).step(0.01)
+blueLight.add(pointLight3, 'intensity').min(0).max(10).step(0.01)
+
+// Blue light helper
+const pointLightHelper2 = new THREE.PointLightHelper(pointLight3, 1)
+scene.add(pointLightHelper2)
 
 /**
  * Screen Size
