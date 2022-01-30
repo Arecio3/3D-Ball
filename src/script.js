@@ -57,12 +57,12 @@ redLight.add(pointLight2.position, 'z').min(-3).max(3).step(0.01)
 redLight.add(pointLight2, 'intensity').min(0).max(10).step(0.01)
 
 // Red light helper
-const pointLightHelper = new THREE.PointLightHelper(pointLight2, 1)
-scene.add(pointLightHelper)
+// const pointLightHelper = new THREE.PointLightHelper(pointLight2, 1)
+// scene.add(pointLightHelper)
 
 // Blue Light
-const pointLight3 = new THREE.PointLight(0xff0000, 2)
-pointLight3.position.set(-1.9,1,-.22)
+const pointLight3 = new THREE.PointLight(0x2dff, 2)
+pointLight3.position.set(.94,-.86,-.22)
 pointLight3.intensity = 4.36
 scene.add(pointLight3)
 
@@ -74,9 +74,20 @@ blueLight.add(pointLight3.position, 'x').min(-6).max(6).step(0.01)
 blueLight.add(pointLight3.position, 'z').min(-3).max(3).step(0.01)
 blueLight.add(pointLight3, 'intensity').min(0).max(10).step(0.01)
 
+// Obj to access color property
+const blueLightColor = {
+    color: 0xff0000 
+}
+// Color Pallete
+blueLight.addColor(blueLightColor, 'color')
+// When you click a color it updates
+.onChange(() => {
+    pointLight3.color.set(blueLightColor.color)
+})
+
 // Blue light helper
-const pointLightHelper2 = new THREE.PointLightHelper(pointLight3, 1)
-scene.add(pointLightHelper2)
+// const pointLightHelper2 = new THREE.PointLightHelper(pointLight3, 1)
+// scene.add(pointLightHelper2)
 
 /**
  * Screen Size
